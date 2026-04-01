@@ -45,10 +45,21 @@ When performing a code review, always check ALL of the following categories and 
 #### Global Variables
 | Prefix | Usage |
 |--------|-------|
-| `gv_` | Global variable (scalar) |
+| `mv_` | Global variable (scalar) |
 | `mt_` | Global (member) internal table |
-| `gs_` | Global structure |
-| `go_` | Global object reference |
+| `ms_` | Global structure |
+| `mo_` | Global object reference |
+| `<fs_>` | Global field symbol |
+
+#### Local Types
+| Prefix | Usage |
+|--------|-------|
+| `lty_` | Local type definition |
+
+#### Global Types
+| Prefix | Usage |
+|--------|-------|
+| `gt_` | Global type definition (table type) |
 
 #### Method Parameters
 | Prefix | Usage |
@@ -69,7 +80,7 @@ When performing a code review, always check ALL of the following categories and 
 - Methods: descriptive `verb_noun` style (e.g., `get_material`, `calculate_price`)
 - Tables: `/CTCO/`
 - Function groups: `/CTCO/`
-- Programs/Reports: `/CTCO/`
+- Programs/Reports: `/CTCO/R_`
 
 ### 2. Performance
 - SELECT * used instead of specific fields
