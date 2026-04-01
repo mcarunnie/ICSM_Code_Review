@@ -81,6 +81,8 @@ When performing a code review, always check ALL of the following categories and 
 - Tables: `/CTCO/`
 - Function groups: `/CTCO/`
 - Programs/Reports: `/CTCO/R_`
+- CDS Base Views: `/CTCO/I_`
+- CDS Consumption Views: `/CTCO/C_`
 
 ### 2. Performance
 - SELECT * used instead of specific fields
