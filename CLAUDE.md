@@ -15,7 +15,14 @@ Claude will fetch the source code from SAP and review it against the checks belo
 
 ## SAP Connection
 
-The `abap-adt` MCP server is pre-configured in `.claude.json`. Update the `env` section with your SAP credentials before use.
+Before performing any code review, check if the `abap-adt` MCP server is connected by attempting a test call. If the connection fails or `.claude.json` has placeholder values, ask the user for the following details and update `.claude.json` accordingly:
+
+1. **SAP URL** — e.g. `http://your-sap-host:50000`
+2. **SAP Client** — e.g. `100`
+3. **SAP Username**
+4. **SAP Password**
+
+Once collected, update the `env` section in `.claude.json` with the provided values. Inform the user that `.claude.json` is in `.gitignore` and will not be committed to GitHub.
 
 ---
 
@@ -24,11 +31,45 @@ The `abap-adt` MCP server is pre-configured in `.claude.json`. Update the `env` 
 When performing a code review, always check ALL of the following categories and report findings grouped by category.
 
 ### 1. Naming Conventions
-> _(To be defined — add ICSM-specific naming rules here)_
-- Variables: `lv_` (local variable), `lt_` (local table), `ls_` (local structure), `lo_` (local object)
-- Parameters: `iv_` (importing), `ev_` (exporting), `rv_` (returning), `ct_` (changing table)
-- Global: `gv_`, `gt_`, `gs_`, `go_`
-- Classes: `ZCL_`, interfaces: `ZIF_`, methods: descriptive verb_noun
+
+#### Local Variables
+| Prefix | Usage |
+|--------|-------|
+| `lv_` | Local variable (scalar) |
+| `lt_` | Local internal table |
+| `ls_` | Local structure |
+| `lo_` | Local object reference |
+| `<ls_>` | Local field symbol (structure) |
+| `<lv_>` | Local field symbol (scalar) |
+
+#### Global Variables
+| Prefix | Usage |
+|--------|-------|
+| `gv_` | Global variable (scalar) |
+| `mt_` | Global (member) internal table |
+| `gs_` | Global structure |
+| `go_` | Global object reference |
+
+#### Method Parameters
+| Prefix | Usage |
+|--------|-------|
+| `iv_` | Importing scalar |
+| `it_` | Importing table |
+| `is_` | Importing structure |
+| `ev_` | Exporting scalar |
+| `et_` | Exporting table |
+| `rv_` | Returning value |
+| `ct_` | Changing table |
+| `cs_` | Changing structure |
+
+#### Object Naming
+- **Namespace: `/CTCO/` is mandatory for all objects. `Z` or `Y` namespace is NOT allowed.**
+- Classes: `/CTCO/CL_`
+- Interfaces: `/CTCO/IF_`
+- Methods: descriptive `verb_noun` style (e.g., `get_material`, `calculate_price`)
+- Tables: `/CTCO/`
+- Function groups: `/CTCO/`
+- Programs/Reports: `/CTCO/`
 
 ### 2. Performance
 - SELECT * used instead of specific fields
