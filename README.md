@@ -5,8 +5,8 @@ AI-powered ABAP code review tool using Claude Code + SAP ADT MCP server.
 ## Prerequisites
 
 - [Claude Code](https://claude.ai/code) installed and licensed
-- Access to the SAP system (`ldcixda.devint.net.sap`, client 200)
-- `mcp-abap-adt` server installed at `C:/Users/I348349/mcp-abap-adt/`
+- Access to your SAP system (EWM/S4 with ADT enabled)
+- `mcp-abap-adt` server installed locally (see [mcp-abap-adt](https://github.com/mcarunnie/mcp-abap-adt))
 
 ## Setup
 
@@ -24,10 +24,10 @@ AI-powered ABAP code review tool using Claude Code + SAP ADT MCP server.
          "command": "node",
          "args": ["C:/Users/I348349/mcp-abap-adt/dist/index.js"],
          "env": {
-           "SAP_URL": "http://ldcixda.devint.net.sap:50011",
+           "SAP_URL": "http://<your-sap-host>:<port>",
            "SAP_USERNAME": "YOUR_USERNAME",
            "SAP_PASSWORD": "YOUR_PASSWORD",
-           "SAP_CLIENT": "200"
+           "SAP_CLIENT": "<your-client>"
          }
        }
      }
