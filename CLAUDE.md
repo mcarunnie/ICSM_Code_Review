@@ -59,7 +59,7 @@ When performing a code review, always check ALL of the following categories and 
 #### Global Types
 | Prefix | Usage |
 |--------|-------|
-| `gt_` | Global type definition (table type) |
+| `ty_` | Global type definition (table type) |
 
 #### Method Parameters
 | Prefix | Usage |
