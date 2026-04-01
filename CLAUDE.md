@@ -17,12 +17,13 @@ Claude will fetch the source code from SAP and review it against the checks belo
 
 Before performing any code review, check if the `abap-adt` MCP server is connected by attempting a test call. If the connection fails or `.claude.json` has placeholder values, ask the user for the following details and update `.claude.json` accordingly:
 
-1. **SAP URL** — e.g. `http://your-sap-host:50000`
-2. **SAP Client** — e.g. `100`
-3. **SAP Username**
-4. **SAP Password**
+1. **MCP Server Path** — full path to `mcp-abap-adt/dist/index.js` on their machine (e.g. `C:/Users/yourname/mcp-abap-adt/dist/index.js`)
+2. **SAP URL** — e.g. `http://your-sap-host:50000`
+3. **SAP Client** — e.g. `100`
+4. **SAP Username**
+5. **SAP Password**
 
-Once collected, update the `env` section in `.claude.json` with the provided values. Inform the user that `.claude.json` is in `.gitignore` and will not be committed to GitHub.
+Once collected, update both the `args` and `env` sections in `.claude.json` with the provided values. Inform the user that `.claude.json` is in `.gitignore` and will not be committed to GitHub.
 
 ---
 
